@@ -160,6 +160,7 @@
 	};
 };
 
+/* empty layers for easy creation later
 
 /* 
                 |     |     |     |     |     |     |     |     |     |     |     |
@@ -168,5 +169,15 @@
 
                 |     |     |     |     |     |     |     |     |     |     |     |
 
-                                  | ( ) | ( ) |     | ( ) | ( ) |
+                                  |     |     |     |     |     |
+*/
+
+       		empty_layer {
+		bindings = <
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
+                         &trans &trans      &trans &trans               
+		>;
+		};
 */
