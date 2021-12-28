@@ -34,7 +34,7 @@
          combo_backslash {
             timeout-ms = <50>;
             key-positions = <8 9>;
-            bindings = <&kp BSPC>;
+            bindings = <&kp BACKSLASH>;
         };
         
          combo_hyphen {
@@ -46,7 +46,7 @@
          combo_equals {
             timeout-ms = <50>;
             key-positions = <15 16>;
-            bindings = <&kp BSPC>;
+            bindings = <&kp EQUAL>;
         };
         
           combo_quote_mod {
@@ -68,7 +68,7 @@
           combo_bootloader {
             timeout-ms = <15>;
             key-positions = <3 4 5 6>;
-            bindings = <&tog 1>;
+            bindings = <&bootloader>;
         };
           combo_caps_word {
             timeout-ms = <15>;
@@ -84,6 +84,7 @@
 /*                         
                                                  reset
                            ┌─────┬─────────────────┴─────────────────┬─────┐
+                           │     │                                   │     │
                            │     │            bootloader             │     │
                            │     │     ┌─────┬─────┴─────┬─────┐     │     │
                   |  q  |  w  |  f  |  p  |  b  |     |  j  |  l  |  u  |  y  |  ;  |
@@ -103,41 +104,56 @@
                                        │       caps_word       │
                                        │                       │
                                        └───────────┬───────────┘
-                                                 ltog2
+                                                 ltog1
 */
 
        		default_layer {
 		bindings = <
 		&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U    &kp Y   &kp SEMI 
-		&lt 2 A &kp R &kp S &kp T &kp G 			        	        &kp M &kp N &kp E &kp I &kp O
+		&lt 2 A &kp R &kp S &kp T &kp G 			        	        &kp M &kp N &kp E &kp I &lt 3 O
 		&mt LCTL Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &mt LCTL FSLH
           				&mt LSFT SPC &mt LCTL ESC  				&mt LALT TAB &mt LGUI RET
 		>;
 		};
 
-            //      |  !  |  @  |  {  |  }  |  &  |     | INS |  7  |  8  |  9  |  *  |
-            //      |    DEL    |     |     |     |     |     |     |     |     \     |
+/*
+                |  !  |  @  |  {  |  }  |  &  |     | INS |  7  |  8  |  9  |  *  |
+                |    DEL    |     |     |     |     |     |     |     |     \     |
 
-            //      |  #  |  $  |  (  |  )  |  *  |     |  0  |  4  |  5  |  6  |  +  |
-            //      |    BSP    |     |     -     |     |     =     |     |    MOD    |
+                |  #  |  $  |  (  |  )  |  *  |     |  0  |  4  |  5  |  6  |  +  |
+                | lt2 |     |     |     |     |     |     |     |     |     | lt3 |
+                |    BSP    |     |     -     |     |     =     |     |    MOD    |
 
-            //      |  %  |  ^  |  [  |  ]  |  `  |     |SYSRQ|  1  |  2  |  3  |  /  |
+                |  %  |  ^  |  [  |  ]  |  `  |     |SYSRQ|  1  |  2  |  3  |  /  |
+
+                                  | ( ) | ( ) |     | ( ) | ( ) |
+*/
 
        		number_layer {
 		bindings = <
 		&kp EXCL &kp AT &kp LBRC &kp RBRC &kp AMPS 						&kp INS &kp N7  &kp N8    &kp N9   &kp ASTRK 
-		&kp HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK 			        	      &kp N0 &kp N4 &kp N5 &kp N6 &kp PLUS
+		&lt 2 HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK 			        	      &kp N0 &kp N4 &kp N5 &kp N6 &kp PLUS
 		&kp PRCNT &kp CARET &kp LBKT &kp RBKT &kp GRAVE				        &kp PSCRN &kp N1  &kp N2 &kp N3 &kp SLASH
           				&trans &trans               &trans &trans
 		>;
 		};
 
+/ 
+                | ( ) | ( ) | HOM | END | ( ) |     | ( ) | ( ) |Docs-|Docs+| ( ) |
+
+                | ( ) | TAB | C-← | C-→ | ( ) |     | ( ) |  ←  |  ↓  |  ↑  |  →  |
+
+                | ( ) |S-TAB| PGD | PGU | ( ) |     | ( ) | ( ) |Zoom-|Zoom+| ( ) |
+
+                                  | ( ) | ( ) |     | ( ) | ( ) |
+*/
+
        		movement_layer {
 		bindings = <
-		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5		&kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 
-		&kp TAB    &kp LC(S)    &kp DQT      &kp PIPE2     &kp HASH 		&kp MINUS &kp EQL  &kp LBKT &kp RBKT  &kp DEL 
-		&kp ESC    &kp TILDE 	&kp NON_US_BSLH &kp NON_US_HASH  &kp TILDE2 	&kp MINUS &kp GRAVE &kp LBKT &kp RBKT  &kp DEL 
-					    &mo 1  &kp LGUI  					&kp RGUI &mo 2 
+    &trans &trans &kp HOME &kp END &trans                 &trans &trans &kp LC(LA(MINUS)) &kp LC(LA(EQUAL)) &trans 
+    &trans &kp TAB &kp LC(LEFT) &kp LC(RIGHT) &trans      &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT 
+    &trans &kp LS(TAB) &kp PG_DN &kp PG_UP &trans      &trans &trans &kp LC(MINUS) &kp LC(EQUAL) &trans 
+                         &trans &trans      &trans &trans               
 		>;
 		};
 		
