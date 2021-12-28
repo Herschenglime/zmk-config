@@ -156,6 +156,27 @@
                          &trans &trans      &trans &trans               
 		>;
 		};
+
+/* 
+                | Fn1 | Fn2 | Fn3 | Fn4 |     |     |     |     |     |     |     |
+
+                | Fn5 | Fn6 | Fn7 | Fn8 |     |     |     |     |     |     |     |
+
+                | Fn9 | F10 | F11 | F12 |     |     |     |     |     |     |     |
+
+                                  |     |     |     |     |     |
+*/
+
+       		media_layer {
+		bindings = <
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
+                         &trans &trans      &trans &trans               
+		>;
+		};
+
+
 		
 	};
 };
