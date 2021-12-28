@@ -74,7 +74,7 @@
             timeout-ms = <15>;
             key-positions = <31 32>;
             bindings = <&caps_word>;
-          }
+        };
         
         
     };
