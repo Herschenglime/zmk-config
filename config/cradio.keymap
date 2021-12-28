@@ -68,27 +68,43 @@
           combo_bootloader {
             timeout-ms = <15>;
             key-positions = <3 4 5 6>;
-            bindings = <&tg 1>;
+            bindings = <&tog 1>;
         };
+          combo_caps_word {
+            timeout-ms = <15>;
+            key-positions = <31 32>;
+            bindings = <&caps_word>;
+          }
         
         
     };
 
         keymap {
                 compatible = "zmk,keymap";
-                
-            //      |  q  |  w  |  f  |  p  |  b  |     |  j  |  l  |  u  |  y  |  ;  |
-            //      |    DEL    |     |     |     |     |     |     |     |     \     |
+/*                         
+                                                 reset
+                           ┌─────┬─────────────────┴─────────────────┬─────┐
+                           │     │            bootloader             │     │
+                           │     │     ┌─────┬─────┴─────┬─────┐     │     │
+                  |  q  |  w  |  f  |  p  |  b  |     |  j  |  l  |  u  |  y  |  ;  |
+                  |    DEL    |     |     |     |     |     |     |     |     \     |
 
-            //      |  a  |  r  |  s  |  t  |  g  |     |  m  |  n  |  e  |  i  |  o  |
-            //      | lt1 |     |     |     |     |     |     |     |     |     '     |
-            //      |    BSP    |     |     -     |     |     =     |     |    MOD    |
+                  |  a  |  r  |  s  |  t  |  g  |     |  m  |  n  |  e  |  i  |  o  |
+                  | lt2 |     |     |     |     |     |     |     |     |     | lt3 |
+                  |     |     |     |     |     |     |     |     |     |     '     |
+                  |    BSP    |     |     -     |     |     =     |     |    MOD    |
 
-            //      |  z  |  x  |  c  |  d  |  v  |     |  k  |  h  |  ,  |  .  |  /  |
-            //      | CTL |     |     |     |     |     |     |     |     |     | CTL |
+                  |  z  |  x  |  c  |  d  |  v  |     |  k  |  h  |  ,  |  .  |  /  |
+                  | CTL |     |     |     |     |     |     |     |     |     | CTL |
 
-                    //                | SPC | ESC |     | TAB | ENT |
-                    //                | SFT | CTL |     | ALT | MOD |   
+                                    | SPC | ESC |     | TAB | ENT |
+                                    | SFT | CTL |     | ALT | MOD |   
+                                       │     └─────┬─────┘     │
+                                       │       caps_word       │
+                                       │                       │
+                                       └───────────┬───────────┘
+                                                 ltog2
+*/
 
        		default_layer {
 		bindings = <
@@ -106,8 +122,6 @@
             //      |    BSP    |     |     -     |     |     =     |     |    MOD    |
 
             //      |  %  |  ^  |  [  |  ]  |  `  |     |SYSRQ|  1  |  2  |  3  |  /  |
-
-                    //                |     |     |     |     |     |
 
        		number_layer {
 		bindings = <
