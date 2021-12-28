@@ -58,7 +58,7 @@
           combo_numlayer {
             timeout-ms = <15>;
             key-positions = <30 33>;
-            bindings = <&tg 1>;
+            bindings = <&tog 1>;
         };
           combo_reset {
             timeout-ms = <50>;
