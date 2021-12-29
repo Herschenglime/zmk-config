@@ -160,19 +160,19 @@
 /* 
                 | Fn1 | Fn2 | Fn3 | Fn4 |     |     |     |     |     |     |     |
 
-                | Fn5 | Fn6 | Fn7 | Fn8 |     |     |     |     |     |     |     |
+                | Fn5 | Fn6 | Fn7 | Fn8 |     |     |     | Vol+| Vol-|  ⏯  | ( ) |
 
-                | Fn9 | F10 | F11 | F12 |     |     |     |     |     |     |     |
+                | Fn9 | F10 | F11 | F12 |     |     |     |  ⏮  |  ⏭  |     |     |
 
                                   |     |     |     |     |     |
 */
 
        		media_layer {
 		bindings = <
-    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
-    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
-    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
-                         &trans &trans      &trans &trans               
+    &kp F1 &kp F2 &kp F3 &kp F4 &trans         &trans &trans &trans &trans &trans 
+    &kp F5 &kp F6 &kp F7 &kp F8 &trans         &trans &kp C_VOL_UP &kp C_VOL_DN &kp C_PP &trans 
+    &kp F9 &kp F10 &kp F11 &kp F12 &trans      &trans &kp C_PREV &kp C_NEXT &trans &trans 
+                         &trans &trans         &trans &trans               
 		>;
 		};
 
@@ -181,7 +181,7 @@
 	};
 };
 
-/* empty layers for easy creation later
+// empty layers for easy creation later
 
 /* 
                 |     |     |     |     |     |     |     |     |     |     |     |
@@ -191,7 +191,9 @@
                 |     |     |     |     |     |     |     |     |     |     |     |
 
                                   |     |     |     |     |     |
+*/
 
+/*
        		empty_layer {
 		bindings = <
     &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
