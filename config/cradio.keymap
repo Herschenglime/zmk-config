@@ -71,7 +71,7 @@
         };
         
           combo_numlayer {
-            timeout-ms = <15>;
+            timeout-ms = <50>;
             key-positions = <30 33>;
             bindings = <&mo_tog LAYER_1 LAYER_1>;
         };
@@ -81,12 +81,12 @@
             bindings = <&reset>;
         };
           combo_bootloader {
-            timeout-ms = <15>;
+            timeout-ms = <50>;
             key-positions = <3 4 5 6>;
             bindings = <&bootloader>;
         };
           combo_caps_word {
-            timeout-ms = <15>;
+            timeout-ms = <50>;
             key-positions = <31 32>;
             bindings = <&caps_word>;
         };
