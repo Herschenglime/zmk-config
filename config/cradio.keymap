@@ -8,14 +8,39 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+/* Ex command to convert kp to autoshifted key
+ *
+ * :'<,'>s/\(\&kp \)\([A-Z]+\)/AS(\2)/g
+ * */
 
 &mt {
   //  flavor = "tap-preferred";
    // tapping_term_ms = <200>;
 };
 
+#define AS(keycode) &as LS(keycode) keycode
 
 / { 
+    behaviors {
+        as: auto_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "AUTO_SHIFT";
+            #binding-cells = <2>;
+            tapping_term_ms = <145>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_tog";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+    };
 
     behaviors {
         mo_tog: behavior_mo_tog {
@@ -46,19 +71,19 @@
          combo_backslash {
             timeout-ms = <50>;
             key-positions = <8 9>;
-            bindings = <&kp BACKSLASH>;
+            bindings = <AS(BACKSLASH)>;
         };
         
          combo_hyphen {
             timeout-ms = <50>;
             key-positions = <13 14>;
-            bindings = <&kp MINUS>;
+            bindings = <AS(MINUS)>;
         };
         
          combo_equals {
             timeout-ms = <50>;
             key-positions = <15 16>;
-            bindings = <&kp EQUAL>;
+            bindings = <AS(EQUAL)>;
         };
         
           combo_quote_mod {
@@ -70,7 +95,7 @@
           combo_numlayer {
             timeout-ms = <50>;
             key-positions = <30 33>;
-            bindings = <&mo_tog LAYER_1 LAYER_1>;
+            bindings = <&mo_tog 1 1>;
         };
           combo_reset {
             timeout-ms = <50>;
@@ -119,14 +144,14 @@
                                                  ltog1
 */
 
-       		default_layer {
-		bindings = <
-		&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U    &kp Y   &kp SEMI 
-		&lt 2 A &kp R &kp S &kp T &kp G 			        	        &kp M &kp N &kp E &kp I &lt 3 O
-		&mt LCTL Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &mt LCTL FSLH
-          				&mt LSFT SPC &mt LCTL ESC  				&mt LALT TAB &mt LGUI RET
-		>;
-		};
+                default_layer {
+        bindings = <
+        AS(Q) AS(W) AS(F) AS(P) AS(B)                       AS(J) AS(L)  AS(U)    AS(Y)   AS(SEMI)
+        &lt 2 A AS(R) AS(S) AS(T) AS(G)                                 AS(M) AS(N) AS(E) AS(I) &lt 3 O
+        &mt LCTL Z AS(X) AS(C) AS(D) AS(V)                      AS(K) AS(H)  AS(CMMA) AS(DOT) &mt LCTL FSLH
+                        &mt LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
+        >;
+        };
 
 /*
                 |  !  |  @  |  {  |  }  |  &  |     | INS |  7  |  8  |  9  |  *  |
@@ -141,14 +166,14 @@
                                   | ( ) | ( ) |     | ( ) | ( ) |
 */
 
-       		number_layer {
-		bindings = <
-		&kp EXCL &kp AT &kp LBRC &kp RBRC &kp AMPS 						&kp INS &kp N7  &kp N8    &kp N9   &kp ASTRK 
-		&lt 2 HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK 			        	      &kp N0 &kp N4 &kp N5 &kp N6 &kp PLUS
-		&kp PRCNT &kp CARET &kp LBKT &kp RBKT &kp GRAVE				        &kp PSCRN &kp N1  &kp N2 &kp N3 &kp SLASH
-          				&trans &trans               &trans &trans
-		>;
-		};
+                number_layer {
+        bindings = <
+        &kp EXCL &kp AT &kp LBRC &kp RBRC &kp AMPS                          &kp INS &kp N7  &kp N8    &kp N9   &kp ASTRK
+        &lt 2 HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK                               &kp N0 &kp N4 &kp N5 &kp N6 &kp PLUS
+        &kp PRCNT &kp CARET &kp LBKT &kp RBKT &kp GRAVE                         &kp PSCRN &kp N1  &kp N2 &kp N3 &kp SLASH
+                        &trans &trans               &trans &trans
+        >;
+        };
 
 /*
                 | ( ) | ( ) | HOM | END | ( ) |     | ( ) | ( ) |Docs-|Docs+| ( ) |
@@ -160,58 +185,58 @@
                                   | ( ) | ( ) |     | ( ) | ( ) |
 */
 
-       		movement_layer {
-		bindings = <
+                movement_layer {
+        bindings = <
     &trans &trans &kp HOME &kp END &trans                 &trans &trans &kp LC(LA(MINUS)) &kp LC(LA(EQUAL)) &trans 
     &trans &kp TAB &kp LC(LEFT) &kp LC(RIGHT) &trans      &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT 
     &trans &kp LS(TAB) &kp PG_DN &kp PG_UP &trans      &trans &trans &kp LC(MINUS) &kp LC(EQUAL) &trans 
                          &trans &trans      &trans &trans               
-		>;
-		};
+        >;
+        };
 
 /* 
-                | Fn1 | Fn2 | Fn3 | Fn4 |     |     |     |     |     |     |     |
+                | Fn1 | Fn2 | Fn3 | Fn4 |     |        |     |BT-P | BT-N |     |BT-C |
 
-                | Fn5 | Fn6 | Fn7 | Fn8 |     |     |     | Vol+| Vol-|  ⏯  | ( ) |
+                | Fn5 | Fn6 | Fn7 | Fn8 |     |        |     | Vol-| Vol+|  ⏯  | ( ) |
 
-                | Fn9 | F10 | F11 | F12 |     |     |     |  ⏮  |  ⏭  |     |     |
+                | Fn9 | F10 | F11 | F12 |     |        |     |  ⏮ |  ⏭  |     |     |
 
-                                  |     |     |     |     |     |
+                                  |     |     |        |     |     |
 */
 
-       		media_layer {
-		bindings = <
-    &kp F1 &kp F2 &kp F3 &kp F4 &trans         &trans &trans &trans &trans &trans 
-    &kp F5 &kp F6 &kp F7 &kp F8 &trans         &trans &kp C_VOL_UP &kp C_VOL_DN &kp C_PP &trans 
+                media_layer {
+        bindings = <
+    &kp F1 &kp F2 &kp F3 &kp F4 &trans         &trans &bt BT_NXT &bt BT_PRV &bt BT_CLR &trans
+    &kp F5 &kp F6 &kp F7 &kp F8 &trans         &trans &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &trans
     &kp F9 &kp F10 &kp F11 &kp F12 &trans      &trans &kp C_PREV &kp C_NEXT &trans &trans 
                          &trans &trans         &trans &trans               
-		>;
-		};
+        >;
+        };
 
 
-		
-	};
+
+    };
 };
 
 // empty layers for easy creation later
 
 /* 
-                |     |     |     |     |     |     |     |     |     |     |     |
+                |     |     |     |     |     |        |     |     |     |     |     |
 
-                |     |     |     |     |     |     |     |     |     |     |     |
+                |     |     |     |     |     |        |     |     |     |     |     |
 
-                |     |     |     |     |     |     |     |     |     |     |     |
+                |     |     |     |     |     |        |     |     |     |     |     |
 
-                                  |     |     |     |     |     |
+                                  |     |     |        |     |     |
 */
 
 /*
-       		empty_layer {
-		bindings = <
+                empty_layer {
+        bindings = <
     &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
     &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
     &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
                          &trans &trans      &trans &trans               
-		>;
-		};
+        >;
+        };
 */
