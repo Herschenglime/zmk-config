@@ -36,7 +36,7 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&tog>;
         };
-
+    };
 
     combos {
         compatible = "zmk,combos";
