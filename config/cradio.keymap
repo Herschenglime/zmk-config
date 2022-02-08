@@ -186,7 +186,7 @@
 /* 
                 | Fn1 | Fn2 | Fn3 | Fn4 |     |        |     |BT-P | BT-N |     |BT-C |
 
-                | Fn5 | Fn6 | Fn7 | Fn8 |     |        |     | Vol+| Vol-|  ⏯  | ( ) |
+                | Fn5 | Fn6 | Fn7 | Fn8 |     |        |     | Vol-| Vol+|  ⏯  | ( ) |
 
                 | Fn9 | F10 | F11 | F12 |     |        |     |  ⏮ |  ⏭  |     |     |
 
@@ -196,7 +196,7 @@
                 media_layer {
         bindings = <
     &kp F1 &kp F2 &kp F3 &kp F4 &trans         &trans &bt BT_NXT &bt BT_PRV &bt BT_CLR &trans
-    &kp F5 &kp F6 &kp F7 &kp F8 &trans         &trans &kp C_VOL_UP &kp C_VOL_DN &kp C_PP &trans 
+    &kp F5 &kp F6 &kp F7 &kp F8 &trans         &trans &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &trans
     &kp F9 &kp F10 &kp F11 &kp F12 &trans      &trans &kp C_PREV &kp C_NEXT &trans &trans 
                          &trans &trans         &trans &trans               
         >;
