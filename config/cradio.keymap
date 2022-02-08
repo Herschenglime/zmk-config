@@ -19,7 +19,7 @@
 };
 
 #define AS(keycode) &as LS(keycode) keycode
-#define RS(modifier, keycode) &rs modifier AS(keycode)
+#define RLS(layer, keycode) &rls layer AS(keycode)
 
 / { 
     behaviors {
@@ -42,15 +42,15 @@
             bindings = <&mo>, <&tog>;
         };
 
-        rs: retro_shift {
+        rls: retro_layer_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "RETRO_SHIFT";
-            #binding-cells = <3>;
+            #binding-cells = <2>;
             tapping_term_ms = <300>;
             quick_tap_ms = <0>;
             retro-tap;
             flavor = "hold-preferred";
-            bindings = <&kp>, <&as>;
+            bindings = <&lt>, <&as>;
         };
     };
 
@@ -148,7 +148,7 @@
                 default_layer {
         bindings = <
         AS(Q) AS(W) AS(F) AS(P) AS(B)                       AS(J) AS(L)  AS(U)    AS(Y)   AS(SEMI)
-        RS(&lt 2, A) AS(R) AS(S) AS(T) AS(G)                                 AS(M) AS(N) AS(E) AS(I) &lt 3 O
+        RLS(&lt 2, A) AS(R) AS(S) AS(T) AS(G)                                 AS(M) AS(N) AS(E) AS(I) &lt 3 O
         &mt LCTL Z AS(X) AS(C) AS(D) AS(V)                      AS(K) AS(H)  AS(CMMA) AS(DOT) &mt LCTL FSLH
                         &mt LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
         >;
