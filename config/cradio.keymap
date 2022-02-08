@@ -80,7 +80,7 @@
           combo_numlayer {
             timeout-ms = <50>;
             key-positions = <30 33>;
-            bindings = <&tog 1>;
+            bindings = <&mo_tog 1 1>;
         };
           combo_reset {
             timeout-ms = <50>;
@@ -129,14 +129,14 @@
                                                  ltog1
 */
 
-       		default_layer {
-		bindings = <
-		&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U    &kp Y   &kp SEMI 
-		&lt 2 A &kp R &kp S &kp T &kp G 			        	        &kp M &kp N &kp E &kp I &lt 3 O
-		&mt LCTL Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp CMMA &kp DOT &mt LCTL FSLH
-          				&mt LSFT SPC &mt LCTL ESC  				&mt LALT TAB &mt LGUI RET
-		>;
-		};
+                default_layer {
+        bindings = <
+        &kp Q &kp W &kp F &kp P &kp B                       &kp J &kp L  &kp U    &kp Y   &kp SEMI
+        &lt 2 A &kp R &kp S &kp T &kp G                                 &kp M &kp N &kp E &kp I &lt 3 O
+        &mt LCTL Z &kp X &kp C &kp D &kp V                      &kp K &kp H  &kp CMMA &kp DOT &mt LCTL FSLH
+                        &mt LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
+        >;
+        };
 
 /*
                 |  !  |  @  |  {  |  }  |  &  |     | INS |  7  |  8  |  9  |  *  |
@@ -151,14 +151,14 @@
                                   | ( ) | ( ) |     | ( ) | ( ) |
 */
 
-       		number_layer {
-		bindings = <
-		&kp EXCL &kp AT &kp LBRC &kp RBRC &kp AMPS 						&kp INS &kp N7  &kp N8    &kp N9   &kp ASTRK 
-		&lt 2 HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK 			        	      &kp N0 &kp N4 &kp N5 &kp N6 &kp PLUS
-		&kp PRCNT &kp CARET &kp LBKT &kp RBKT &kp GRAVE				        &kp PSCRN &kp N1  &kp N2 &kp N3 &kp SLASH
-          				&trans &trans               &trans &trans
-		>;
-		};
+                number_layer {
+        bindings = <
+        &kp EXCL &kp AT &kp LBRC &kp RBRC &kp AMPS                          &kp INS &kp N7  &kp N8    &kp N9   &kp ASTRK
+        &lt 2 HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK                               &kp N0 &kp N4 &kp N5 &kp N6 &kp PLUS
+        &kp PRCNT &kp CARET &kp LBKT &kp RBKT &kp GRAVE                         &kp PSCRN &kp N1  &kp N2 &kp N3 &kp SLASH
+                        &trans &trans               &trans &trans
+        >;
+        };
 
 /*
                 | ( ) | ( ) | HOM | END | ( ) |     | ( ) | ( ) |Docs-|Docs+| ( ) |
@@ -170,14 +170,14 @@
                                   | ( ) | ( ) |     | ( ) | ( ) |
 */
 
-       		movement_layer {
-		bindings = <
+                movement_layer {
+        bindings = <
     &trans &trans &kp HOME &kp END &trans                 &trans &trans &kp LC(LA(MINUS)) &kp LC(LA(EQUAL)) &trans 
     &trans &kp TAB &kp LC(LEFT) &kp LC(RIGHT) &trans      &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT 
     &trans &kp LS(TAB) &kp PG_DN &kp PG_UP &trans      &trans &trans &kp LC(MINUS) &kp LC(EQUAL) &trans 
                          &trans &trans      &trans &trans               
-		>;
-		};
+        >;
+        };
 
 /* 
                 | Fn1 | Fn2 | Fn3 | Fn4 |     |        |     |BT-P | BT-N |     |     |
@@ -189,18 +189,18 @@
                                   |     |     |        |     |     |
 */
 
-       		media_layer {
-		bindings = <
+                media_layer {
+        bindings = <
     &kp F1 &kp F2 &kp F3 &kp F4 &trans         &trans &bt BT_NXT &bt BT_PRV &trans &trans
     &kp F5 &kp F6 &kp F7 &kp F8 &trans         &trans &kp C_VOL_UP &kp C_VOL_DN &kp C_PP &trans 
     &kp F9 &kp F10 &kp F11 &kp F12 &trans      &trans &kp C_PREV &kp C_NEXT &trans &trans 
                          &trans &trans         &trans &trans               
-		>;
-		};
+        >;
+        };
 
 
-		
-	};
+
+    };
 };
 
 // empty layers for easy creation later
@@ -216,12 +216,12 @@
 */
 
 /*
-       		empty_layer {
-		bindings = <
+                empty_layer {
+        bindings = <
     &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
     &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
     &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
                          &trans &trans      &trans &trans               
-		>;
-		};
+        >;
+        };
 */
