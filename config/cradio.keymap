@@ -52,7 +52,7 @@
         };
         
          combo_backspace {
-            timeout-ms = <50>;
+            timeout-ms = <25>;
             key-positions = <10 11>;
             bindings = <&kp BSPC>;
         };
@@ -184,7 +184,7 @@
         };
 
 /* 
-                | Fn1 | Fn2 | Fn3 | Fn4 |     |        |     |BT-P | BT-N |     |BT-C |
+                | Fn1 | Fn2 | Fn3 | Fn4 |     |        |     |BT-P | BT-N | BT-C|    |
 
                 | Fn5 | Fn6 | Fn7 | Fn8 |     |        |     | Vol-| Vol+|  ⏯  | ( ) |
 
@@ -195,9 +195,9 @@
 
                 media_layer {
         bindings = <
-    &kp F1 &kp F2 &kp F3 &kp F4 &trans         &trans &bt BT_NXT &bt BT_PRV &bt BT_CLR &trans
-    &kp F5 &kp F6 &kp F7 &kp F8 &trans         &trans &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &trans
-    &kp F9 &kp F10 &kp F11 &kp F12 &trans      &trans &kp C_PREV &kp C_NEXT &trans &trans 
+    &kp F1 &kp F2 &kp F3 &kp F4    &bt BT_SEL 0         &bt BT_SEL 3 &bt BT_NXT &bt BT_PRV &bt BT_CLR &trans
+    &kp F5 &kp F6 &kp F7 &kp F8    &bt BT_SEL 1         &bt BT_SEL 4 &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &trans
+    &kp F9 &kp F10 &kp F11 &kp F12 &bt BT_SEL 2      &trans &kp C_PREV &kp C_NEXT &trans &trans
                          &trans &trans         &trans &trans               
         >;
         };
