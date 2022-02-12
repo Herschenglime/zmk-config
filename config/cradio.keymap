@@ -45,10 +45,10 @@
         rls: retro_layer_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "RETRO_SHIFT";
-            #binding-cells = <3>;
+            #binding-cells = <2>;
             tapping_term_ms = <300>;
             quick_tap_ms = <0>;
-            retro-tap;
+            // retro-tap;
             flavor = "hold-preferred";
             bindings = <&lt>, <&as>;
         };
