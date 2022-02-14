@@ -169,7 +169,7 @@
 
                 | ( ) | TAB | C-← | C-→ | ( ) |     | ( ) |  ←  |  ↓  |  ↑  |  →  |
 
-                | ( ) |S-TAB| PGD | PGU | ( ) |     | ( ) | ( ) |Zoom-|Zoom+| ( ) |
+                | ( ) |S-TAB| PGD | PGU | ( ) |     | ( ) | A-← |Zoom-|Zoom+| A-→ |
 
                                   | ( ) | ( ) |     | ( ) | ( ) |
 */
@@ -178,7 +178,7 @@
         bindings = <
     &trans &trans &kp HOME &kp END &trans                 &trans &trans &kp LC(LA(MINUS)) &kp LC(LA(EQUAL)) &trans 
     &trans &kp TAB &kp LC(LEFT) &kp LC(RIGHT) &trans      &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT 
-    &trans &kp LS(TAB) &kp PG_DN &kp PG_UP &trans      &trans &trans &kp LC(MINUS) &kp LC(EQUAL) &trans 
+    &trans &kp LS(TAB) &kp PG_DN &kp PG_UP &trans      &trans &kp LA(LEFT) &kp LC(MINUS) &kp LC(EQUAL) &kp LA(RIGHT)
                          &trans &trans      &trans &trans               
         >;
         };
