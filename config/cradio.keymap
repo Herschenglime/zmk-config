@@ -20,7 +20,7 @@
 
 #define AS(keycode) &as LS(keycode) keycode
 
-/ { 
+/ {
     behaviors {
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
@@ -40,6 +40,15 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&tog>;
         };
+
+        sm: behavior_sticky_mo {
+            compatible = "zmk,behavior-hold-tap";
+            label = "sticky_momentary";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&sl>;
+        };
     };
 
     combos {
@@ -50,64 +59,70 @@
             key-positions = <0 1>;
             bindings = <&kp DEL>;
         };
-        
+
          combo_backspace {
             timeout-ms = <30>;
             key-positions = <10 11>;
             bindings = <&kp BSPC>;
         };
-        
+
          combo_backslash {
             timeout-ms = <50>;
             key-positions = <8 9>;
             bindings = <AS(BACKSLASH)>;
         };
-        
+
          combo_hyphen {
             timeout-ms = <50>;
             key-positions = <13 14>;
             bindings = <AS(MINUS)>;
         };
-        
+
          combo_equals {
             timeout-ms = <50>;
             key-positions = <15 16>;
             bindings = <AS(EQUAL)>;
         };
-        
+
           combo_quote_mod {
             timeout-ms = <50>;
             key-positions = <18 19>;
             bindings = <&mt LGUI SQT>;
         };
-        
+
           combo_numlayer {
             timeout-ms = <50>;
             key-positions = <30 33>;
-            bindings = <&mo_tog 1 1>;
+            bindings = <&sm 1 1>;
         };
+
           combo_reset {
             timeout-ms = <50>;
             key-positions = <1 2 7 8>;
             bindings = <&reset>;
         };
+
           combo_bootloader {
             timeout-ms = <50>;
             key-positions = <3 4 5 6>;
             bindings = <&bootloader>;
         };
+
           combo_caps_word {
             timeout-ms = <50>;
             key-positions = <31 32>;
             bindings = <&caps_word>;
         };
-        
-        
+
+          combo_num_layer_toggle {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&mo_tog 1 1>;
     };
 
         keymap {
                 compatible = "zmk,keymap";
-/*                         
+/*
                                                  reset
                            ┌─────┬─────────────────┴─────────────────┬─────┐
                            │     │                                   │     │
@@ -122,10 +137,10 @@
                   |    BSP    |     |     -     |     |     =     |     |    MOD    |
 
                   |  z  |  x  |  c  |  d  |  v  |     |  k  |  h  |  ,  |  .  |  /  |
-                  | CTL |     |     |     |     |     |     |     |     |     | CTL |
+                  | CTL |     |    sm1    |     |     |     |     |     |     | CTL |
 
                                     | SPC | ESC |     | TAB | ENT |
-                                    | SFT | CTL |     | ALT | MOD |   
+                                    | SFT | CTL |     | ALT | MOD |
                                        │     └─────┬─────┘     │
                                        │       caps_word       │
                                        │                       │
@@ -177,13 +192,13 @@
                 movement_layer {
         bindings = <
             &trans &trans &kp HOME &kp END &trans                 &trans &kp LA(DOWN) &kp LC(LA(MINUS)) &kp LC(LA(EQUAL)) &kp LA(UP)
-    &trans &kp TAB &kp LC(LEFT) &kp LC(RIGHT) &trans      &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT 
+    &trans &kp TAB &kp LC(LEFT) &kp LC(RIGHT) &trans      &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT
     &trans &kp LS(TAB) &kp PG_DN &kp PG_UP &trans      &trans &kp LA(LEFT) &kp LC(MINUS) &kp LC(EQUAL) &kp LA(RIGHT)
-                         &trans &trans      &trans &trans               
+                         &trans &trans      &trans &trans
         >;
         };
 
-/* 
+/*
                 | Fn1 | Fn2 | Fn3 | Fn4 |     |        |     |BT-P | BT-N | BT-C|    |
 
                 | Fn5 | Fn6 | Fn7 | Fn8 |     |        |     | Vol-| Vol+|  ⏯  | ( ) |
@@ -198,7 +213,7 @@
     &kp F1 &kp F2 &kp F3 &kp F4    &bt BT_SEL 0         &bt BT_SEL 3 &bt BT_PRV &bt BT_NXT &bt BT_CLR &trans
     &kp F5 &kp F6 &kp F7 &kp F8    &bt BT_SEL 1         &bt BT_SEL 4 &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &trans
     &kp F9 &kp F10 &kp F11 &kp F12 &bt BT_SEL 2      &trans &kp C_PREV &kp C_NEXT &trans &trans
-                         &trans &trans         &trans &trans               
+                         &trans &trans         &trans &trans
         >;
         };
 
@@ -209,7 +224,7 @@
 
 // empty layers for easy creation later
 
-/* 
+/*
                 |     |     |     |     |     |        |     |     |     |     |     |
 
                 |     |     |     |     |     |        |     |     |     |     |     |
@@ -222,10 +237,10 @@
 /*
                 empty_layer {
         bindings = <
-    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
-    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
-    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans 
-                         &trans &trans      &trans &trans               
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans
+    &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans
+                         &trans &trans      &trans &trans
         >;
         };
 */
