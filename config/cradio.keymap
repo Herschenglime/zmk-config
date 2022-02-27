@@ -49,6 +49,16 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&sl>;
         };
+
+        sh: behavior_sticky_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "sticky_hold";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&sk>, <&kp>;
+        };
+
     };
 
     combos {
@@ -150,7 +160,7 @@
                   |    BSP    |     |     -     |     |     =     |     |    MOD    |
 
                   |  z  |  x  |  c  |  d  |  v  |     |  k  |  h  |  ,  |  .  |  /  |
-                  | CTL |     |    sm1    |     |     |     |     |     |     | CTL |
+                  |     |     |    sm1    |     |     |     |     |     |     |     |
                   |     |     |     |     _     |     |     +     |     |     |     |
 
                                     | SPC | ESC |     | TAB | ENT |
@@ -167,7 +177,7 @@
         AS(Q) AS(W) AS(F) AS(P) AS(B)                       AS(J) AS(L)  AS(U)    AS(Y)   AS(SEMI)
         &lt 2 A AS(R) AS(S) AS(T) AS(G)                                 AS(M) AS(N) AS(E) AS(I) &lt 3 O
         AS(Z) AS(X) AS(C) AS(D) AS(V)                      AS(K) AS(H)  AS(CMMA) AS(DOT)  AS(FSLH)
-                        &mt LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
+                        &sh LSFT SPC &sh LCTL ESC                   &sh LALT TAB &sh LGUI RET
         >;
         };
 
