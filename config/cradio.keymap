@@ -18,6 +18,16 @@
    // tapping_term_ms = <200>;
 };
 
+//give myself a bunch of time to stack modifiers
+&sk {
+     release-after-ms = <2000>;
+};
+
+//allow for adding modifiers to keys on sticky num layer
+&sl {
+    /delete-property/ quick-release;
+};
+
 #define AS(keycode) &as LS(keycode) keycode
 
 / {
