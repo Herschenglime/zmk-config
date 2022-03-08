@@ -18,6 +18,16 @@
    // tapping_term_ms = <200>;
 };
 
+//give myself a bunch of time to stack modifiers
+&sk {
+     release-after-ms = <2000>;
+};
+
+//allow for adding modifiers to keys on sticky num layer
+&sl {
+    /delete-property/ quick-release;
+};
+
 #define AS(keycode) &as LS(keycode) keycode
 
 / {
@@ -110,6 +120,12 @@
             timeout-ms = <50>;
             key-positions = <18 19>;
             bindings = <&mt LGUI SQT>;
+        };
+
+          combo_double_quote {
+            timeout-ms = <50>;
+            key-positions = <28 29>;
+            bindings = <&kp DOUBLE_QUOTES>;
         };
 
           combo_numlayer {
