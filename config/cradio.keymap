@@ -18,6 +18,16 @@
    // tapping_term_ms = <200>;
 };
 
+//give myself a bunch of time to stack modifiers
+&sk {
+     release-after-ms = <2000>;
+};
+
+//allow for adding modifiers to keys on sticky num layer
+&sl {
+    /delete-property/ quick-release;
+};
+
 #define AS(keycode) &as LS(keycode) keycode
 
 / {
@@ -41,14 +51,24 @@
             bindings = <&mo>, <&tog>;
         };
 
-        sm: behavior_sticky_mo {
+        /* sm: behavior_sticky_mo { */
+        /*     compatible = "zmk,behavior-hold-tap"; */
+        /*     label = "sticky_momentary"; */
+        /*     #binding-cells = <2>; */
+        /*     flavor = "hold-preferred"; */
+        /*     tapping-term-ms = <200>; */
+        /*     bindings = <&mo>, <&sl>; */
+        /* }; */
+
+        smt: behavior_sticky_mod_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "sticky_momentary";
+            label = "sticky_mod_tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&sl>;
+            bindings = <&sk>, <&kp>;
         };
+
     };
 
     combos {
@@ -78,10 +98,22 @@
             bindings = <AS(MINUS)>;
         };
 
+         combo_underscore {
+            timeout-ms = <50>;
+            key-positions = <23 24>;
+            bindings = <&kp UNDERSCORE>;
+        };
+
          combo_equals {
             timeout-ms = <50>;
             key-positions = <15 16>;
             bindings = <AS(EQUAL)>;
+        };
+
+         combo_plus {
+            timeout-ms = <50>;
+            key-positions = <25 26>;
+            bindings = <&kp PLUS>;
         };
 
           combo_quote_mod {
@@ -90,10 +122,16 @@
             bindings = <&mt LGUI SQT>;
         };
 
+          combo_double_quote {
+            timeout-ms = <50>;
+            key-positions = <28 29>;
+            bindings = <&kp DOUBLE_QUOTES>;
+        };
+
           combo_numlayer {
             timeout-ms = <50>;
             key-positions = <30 33>;
-            bindings = <&sm 1 1>;
+            bindings = <&sl 1>;
         };
 
           combo_reset {
@@ -138,7 +176,8 @@
                   |    BSP    |     |     -     |     |     =     |     |    MOD    |
 
                   |  z  |  x  |  c  |  d  |  v  |     |  k  |  h  |  ,  |  .  |  /  |
-                  | CTL |     |    sm1    |     |     |     |     |     |     | CTL |
+                  |     |     |    sl1    |     |     |     |     |     |     |     |
+                  |     |     |     |     _     |     |     +     |     |     |     |
 
                                     | SPC | ESC |     | TAB | ENT |
                                     | SFT | CTL |     | ALT | MOD |
@@ -153,8 +192,8 @@
         bindings = <
         AS(Q) AS(W) AS(F) AS(P) AS(B)                       AS(J) AS(L)  AS(U)    AS(Y)   AS(SEMI)
         &lt 2 A AS(R) AS(S) AS(T) AS(G)                                 AS(M) AS(N) AS(E) AS(I) &lt 3 O
-        &mt LCTL Z AS(X) AS(C) AS(D) AS(V)                      AS(K) AS(H)  AS(CMMA) AS(DOT) &mt LCTL FSLH
-                        &mt LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
+        AS(Z) AS(X) AS(C) AS(D) AS(V)                      AS(K) AS(H)  AS(CMMA) AS(DOT)  AS(FSLH)
+                        &smt LSFT SPC &smt LCTL ESC                   &smt LALT TAB &smt LGUI RET
         >;
         };
 
@@ -162,11 +201,12 @@
                 |  !  |  @  |  {  |  }  |  &  |     | INS |  7  |  8  |  9  |  *  |
                 |    DEL    |     |     |     |     |     |     |     |     \     |
 
-                |  #  |  $  |  (  |  )  |  *  |     |  0  |  4  |  5  |  6  |  +  |
+                |  #  |  $  |  (  |  )  |  *  |     |  .  |  4  |  5  |  6  |  0  |
                 | lt2 |     |     |     |     |     |     |     |     |     | lt3 |
                 |    BSP    |     |     -     |     |     =     |     |    MOD    |
 
                 |  %  |  ^  |  [  |  ]  |  `  |     |SYSRQ|  1  |  2  |  3  |  /  |
+                |     |     |     |     _     |     |     +     |     |     |     |
 
                                   | ( ) | ( ) |     | ( ) | ( ) |
 */
@@ -174,7 +214,7 @@
                 number_layer {
         bindings = <
         &kp EXCL &kp AT &kp LBRC &kp RBRC &kp AMPS                          &kp INS &kp N7  &kp N8    &kp N9   &kp ASTRK
-        &lt 2 HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK                               &kp N0 &kp N4 &kp N5 &kp N6 &kp PLUS
+        &lt 2 HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK                               &kp DOT &kp N4 &kp N5 &kp N6 &lt 3 N0
         &kp PRCNT &kp CARET &kp LBKT &kp RBKT AS(GRAVE)                         &kp PSCRN &kp N1  &kp N2 &kp N3 &kp SLASH
                         &trans &trans               &trans &trans
         >;
