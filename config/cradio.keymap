@@ -193,7 +193,7 @@
         AS(Q) AS(W) AS(F) AS(P) AS(B)                       AS(J) AS(L)  AS(U)    AS(Y)   AS(SEMI)
         &lt 2 A AS(R) AS(S) AS(T) AS(G)                                 AS(M) AS(N) AS(E) AS(I) &lt 3 O
         AS(Z) AS(X) AS(C) AS(D) AS(V)                      AS(K) AS(H)  AS(CMMA) AS(DOT)  AS(FSLH)
-                        &smt LSFT SPC &smt LCTL ESC                   &smt LALT TAB &smt LGUI RET
+                        &mt LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
         >;
         };
 
