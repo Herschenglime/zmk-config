@@ -28,6 +28,10 @@
     /delete-property/ quick-release;
 };
 
+&caps_word {
+continue-list = <UNDERSCORE BSPC>;
+};
+
 #define AS(keycode) &as LS(keycode) keycode
 
 / {
