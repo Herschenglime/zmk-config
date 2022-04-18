@@ -29,7 +29,7 @@
 };
 
 &caps_word {
-continue-list = <UNDERSCORE BSPC>;
+continue-list = <UNDERSCORE BSPC MINUS>;
 };
 
 #define AS(keycode) &as LS(keycode) keycode
@@ -80,19 +80,19 @@ continue-list = <UNDERSCORE BSPC>;
 
         combo_del {
             timeout-ms = <50>;
-            key-positions = <0 1>;
+            key-positions = <1 2>;
             bindings = <&kp DEL>;
         };
 
          combo_backspace {
             timeout-ms = <30>;
-            key-positions = <10 11>;
+            key-positions = <11 12>;
             bindings = <&kp BSPC>;
         };
 
          combo_backslash {
             timeout-ms = <50>;
-            key-positions = <8 9>;
+            key-positions = <7 8>;
             bindings = <AS(BACKSLASH)>;
         };
 
@@ -122,13 +122,13 @@ continue-list = <UNDERSCORE BSPC>;
 
           combo_quote_mod {
             timeout-ms = <50>;
-            key-positions = <18 19>;
+            key-positions = <17 18>;
             bindings = <&mt LGUI SQT>;
         };
 
           combo_double_quote {
             timeout-ms = <50>;
-            key-positions = <28 29>;
+            key-positions = <27 28>;
             bindings = <&kp DOUBLE_QUOTES>;
         };
 
