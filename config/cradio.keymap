@@ -133,7 +133,7 @@ continue-list = <UNDERSCORE BSPC MINUS>;
         };
 
           combo_numlayer {
-            timeout-ms = <15>;
+            timeout-ms = <50>;
             key-positions = <30 33>;
             bindings = <&sl 1>;
         };
@@ -157,7 +157,7 @@ continue-list = <UNDERSCORE BSPC MINUS>;
         };
 
           combo_num_layer_toggle {
-            timeout-ms = <50>;
+            timeout-ms = <15>;
             key-positions = <10 13>;
             bindings = <&mo_tog 1 1>;
         };
