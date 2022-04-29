@@ -164,37 +164,37 @@ continue-list = <UNDERSCORE BSPC MINUS>;
 
 
         opening_brace {
-            timeout-ms = <25>;
+            timeout-ms = <15>;
             key-positions = <2 3>;
             bindings = <&kp LBRC>;
         };
 
         closing_brace {
-            timeout-ms = <25>;
+            timeout-ms = <15>;
             key-positions = <6 7>;
             bindings = <&kp RBRC>;
         };
 
         opening_par {
-            timeout-ms = <25>;
+            timeout-ms = <15>;
             key-positions = <12 13>;
             bindings = <&kp LPAR>;
         };
 
         closing_par {
-            timeout-ms = <25>;
+            timeout-ms = <15>;
             key-positions = <16 17>;
             bindings = <&kp RPAR>;
         };
 
         opening_bracket {
-            timeout-ms = <25>;
+            timeout-ms = <15>;
             key-positions = <22 23>;
             bindings = <&kp LBKT>;
         };
 
         closing_bracket {
-            timeout-ms = <25>;
+            timeout-ms = <15>;
             key-positions = <26 27>;
             bindings = <&kp RBKT>;
         };
