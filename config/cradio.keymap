@@ -275,7 +275,7 @@ compatible = "zmk,keymap";
         bindings = <
             &trans &trans &kp HOME &kp END &trans                 &trans &kp LA(DOWN) &kp LC(LA(MINUS)) &kp LC(LA(EQUAL)) &kp LA(UP)
     &trans &kp TAB &kp LC(LEFT) &kp LC(RIGHT) &trans      &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT
-    &trans &kp LS(TAB) &kp PG_DN &kp PG_UP &trans      &trans &kp LA(LEFT) &kp LC(MINUS) &kp LC(EQUAL) &kp LA(RIGHT)
+    &trans &kp LS(TAB) &kp PG_DN &kp PG_UP &trans      &trans &kp LG(LA(LEFT)) &kp LC(MINUS) &kp LC(EQUAL) &kp LG(LA(RIGHT))
                          &trans &trans      &trans &trans
         >;
         };
