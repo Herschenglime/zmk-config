@@ -203,13 +203,13 @@ continue-list = <UNDERSCORE BSPC MINUS>;
             timeout-ms = <15>;
             key-positions = <20 21>;
             bindings = <&kp RALT>;
-        }
+        };
 
         ralt_right {
             timeout-ms = <15>;
             key-positions = <28 29>;
             bindings = <&kp RALT>;
-        }
+        };
 };
 
 keymap {
