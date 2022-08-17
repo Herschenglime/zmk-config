@@ -8,6 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+// hocus pocus fix stuck keys
+
 /* Ex command to convert kp to autoshifted key
  *
  * :'<,'>s/\(\&kp \)\([A-Z]+\)/AS(\2)/g
