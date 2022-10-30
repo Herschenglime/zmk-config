@@ -213,11 +213,12 @@ continue-list = <UNDERSCORE BSPC MINUS>;
             bindings = <&kp RALT>;
         };
 
+
         one_shot_shift_l {
             timeout-ms = <30>;
-            key-positions = <11 12 13>;
+            key-positions = <16 17 18>;
             bindings = <&sk LSHIFT>;
-        }
+        };
 };
 
 keymap {
