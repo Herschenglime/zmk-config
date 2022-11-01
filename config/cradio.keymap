@@ -16,7 +16,7 @@
  * */
 
 &mt {
-  //  flavor = "tap-preferred";
+   /* flavor = "tap-preferred"; */
    // tapping_term_ms = <200>;
 };
 
@@ -55,6 +55,15 @@ continue-list = <UNDERSCORE BSPC MINUS>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&tog>;
+        };
+
+        ss: behavior_slowshift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ss";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
         };
 
         /* sm: behavior_sticky_mo { */
@@ -260,7 +269,7 @@ compatible = "zmk,keymap";
         &kp Q &kp W &kp F &kp P &kp B                       &kp J &kp L  &kp U    &kp Y   AS(SEMI)
         &lt 2 A &kp R &kp S &kp T &kp G                                 &kp M &kp N &kp E &kp I &lt 3 O
         &kp Z &kp X &kp C &kp D &kp V                      &kp K &kp H  AS(CMMA) AS(DOT)  AS(FSLH)
-                        &mt LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
+                        &ss LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
         >;
         };
 
