@@ -213,17 +213,24 @@ continue-list = <UNDERSCORE BSPC MINUS>;
             bindings = <&kp RALT>;
         };
 
-        one_shot_shift_l {
+        /* one_shot_shift_l { */
+        /*     timeout-ms = <50>; */
+        /*     key-positions = <11 12 13>; */
+        /*     bindings = <&sk LSHIFT>; */
+        /* }; */
+
+        /* one_shot_shift_r { */
+        /*     timeout-ms = <50>; */
+        /*     key-positions = <16 17 18>; */
+        /*     bindings = <&sk LSHIFT>; */
+        /* }; */
+
+        shift_combo {
             timeout-ms = <50>;
-            key-positions = <11 12 13>;
+            key-positions = <30 31>;
             bindings = <&sk LSHIFT>;
         };
 
-        one_shot_shift_r {
-            timeout-ms = <50>;
-            key-positions = <16 17 18>;
-            bindings = <&sk LSHIFT>;
-        };
 };
 
 keymap {
@@ -260,7 +267,7 @@ compatible = "zmk,keymap";
         AS(Q) AS(W) AS(F) AS(P) AS(B)                       AS(J) AS(L)  AS(U)    AS(Y)   AS(SEMI)
         &lt 2 A AS(R) AS(S) AS(T) AS(G)                                 AS(M) AS(N) AS(E) AS(I) &lt 3 O
         AS(Z) AS(X) AS(C) AS(D) AS(V)                      AS(K) AS(H)  AS(CMMA) AS(DOT)  AS(FSLH)
-                        &mt LSFT SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
+                        &kp SPC &mt LCTL ESC                   &mt LALT TAB &mt LGUI RET
         >;
         };
 
