@@ -292,6 +292,7 @@ compatible = "zmk,keymap";
         };
 
 /*
+                this has changed! no longer a reference
                 |  !  |  @  |  {  |  }  |  &  |     | INS |  7  |  8  |  9  |  *  |
                 |    DEL    |     |     |     |     |     |     |     |     \     |
 
@@ -307,9 +308,9 @@ compatible = "zmk,keymap";
 
                 number_layer {
         bindings = <
-        &kp EXCL &kp AT &kp LBRC &kp RBRC &kp AMPS                          &kp INS &kp N7  &kp N8    &kp N9   &kp ASTRK
-        &lt 2 HASH &kp DLLR &kp LPAR &kp RPAR &kp ASTRK                               &kp DOT &kp N4 &kp N5 &kp N6 &lt 3 N0
-        &kp PRCNT &kp CARET &kp LBKT &kp RBKT AS(GRAVE)                         &kp PSCRN &kp N1  &kp N2 &kp N3 &kp SLASH
+        &kp EXCL &kp AT &kp HASH &kp DLLR &kp INS                          &kp PLUS &kp N7  &kp N8    &kp N9   &kp ASTRK
+        &lt 2 PRCNT &kp CARET &kp AMPS &kp ASTRK &kp PSCRN                   &kp DOT &kp N4 &kp N5 &kp N6 &lt 3 N0
+        &kp GRV &kp TILDE &kp BSLH &kp PIPE &kp CMMA                      &kp HYPHEN &kp N1  &kp N2 &kp N3 &kp SLASH
                         &trans &trans               &trans &trans
         >;
         };
