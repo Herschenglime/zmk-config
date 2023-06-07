@@ -8,6 +8,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define DEFAULT 0
+#define NUMBER 1
+#define MOVEMENT 2
+#define MEDIA 3
+#define GAMING 4
+
 
 /* Ex command to convert kp to autoshifted key
  *
@@ -245,10 +251,10 @@ continue-list = <UNDERSCORE BSPC MINUS>;
             bindings = <&kp LG(TAB)>;
         };
 
-        summon_editor {
+        gaming_time {
             timeout-ms = <50>;
             key-positions = <30 31 32 33>;
-            bindings = <&kp LG(LC(RET))>;
+            bindings = <&tog GAMING>;
         };
 
 };
@@ -353,7 +359,32 @@ compatible = "zmk,keymap";
         >;
         };
 
+/*
+                |     |     |     |     |     |        |     |     |     |     |     |
 
+                |     |     |     |     |     |        |     |     |     |     |     |
+
+                |     |     |     |     |     |        |     |     |     |     |     |
+
+                                  |     |     |        |     |     |
+*/
+
+
+                gaming_layer {
+        bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
+            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ' "      │
+            &kp A      &kp S      &kp D      &kp F      &kp G          &kp H      &kp J      &kp K      &kp L      &kp SQT
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &kp LSHFT  &kp LCTL       &kp ESC    &kp SPACE
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯        >;
+        };
 
     };
 };
