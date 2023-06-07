@@ -157,7 +157,7 @@ continue-list = <UNDERSCORE BSPC MINUS>;
           combo_reset {
             timeout-ms = <50>;
             key-positions = <1 2 7 8>;
-            bindings = <&reset>;
+            bindings = <&sys_reset>;
         };
 
           combo_bootloader {
