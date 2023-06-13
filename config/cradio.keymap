@@ -260,7 +260,7 @@ continue-list = <UNDERSCORE BSPC MINUS>;
         all_thumbs {
             timeout-ms = <50>;
             key-positions = <30 31 32 33>;
-            bindings = <&tog GAMING>;
+            bindings = <&kp LG(LC(RET))>;
         };
 
 };
