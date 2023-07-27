@@ -42,16 +42,22 @@ continue-list = <UNDERSCORE BSPC MINUS>;
 #define AS(keycode) &as LS(keycode) keycode
 / {
     macros {
-        zed_em_kay: zed_em_kay {
-            label = "ZM_zed_em_kay";
+        summon_terminal: zed_em_kay {
+            label = "ZM_summon_terminal";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp Z &kp M &kp K>
-                , <&macro_release &kp LSHFT>
+                = <&macro_press &kp LGUI>
+                , <&macro_tap &kp RET>
+                , <&macro_release &kp LGUI>
                 ;
         };
+
+        ZMK_MACRO(my_macro,
+            wait-ms = <30>;
+            tap-ms = <40>;
+            bindings = <&kp Z &kp M &kp K>;
+        )
     };
 };
 
@@ -280,7 +286,13 @@ continue-list = <UNDERSCORE BSPC MINUS>;
         summon_terminal {
             timeout-ms = <50>;
             key-positions = <16 17 18>;
-            bindings = <&kp LG(RET)>;
+            bindings = <&summon_terminal>;
+        };
+
+        zmk_tester {
+            timeout-ms = <50>;
+            key-positions = <1 2 3>;
+            bindings = <&my_macro>;
         };
 
 };
